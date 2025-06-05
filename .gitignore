@@ -1,0 +1,7 @@
+build
+config/*.json
+*.o
+*.d
+.clang-format
+.vscode
+.DS_Store
