@@ -31,5 +31,4 @@ int main(int argc, char *argv[]) {
 
 void cb(amqp_channel_t channelId, amqp_bytes_t &consumerTag, amqp_message_t &msg) {
   std::cout << "CB\n" << std::string(static_cast<char *>(msg.body.bytes), msg.body.len) << "\n";
-  ;
 }
