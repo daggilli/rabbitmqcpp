@@ -23,12 +23,12 @@ int main(int argc, char *argv[]) {
 
   RabbitMQCpp::PublisherConfiguration producerConfig(argv[1]);
 
-  RabbitMQCpp::RabbitMQPublisher producer;
-  producer.login(connConfig);
+  RabbitMQCpp::RabbitMQPublisher publisher;
+  publisher.login(connConfig);
 
-  producer.prepare(producerConfig);
+  publisher.prepare(producerConfig);
   RabbitMQCpp::RandomInt ri(0, 16383);
 
-  producer.send(producerConfig, std::format("{} {}", "pubsub message"s, ri()));
+  publisher.send(producerConfig, std::format("{} {}", "pubsub message"s, ri()));
   return 0;
 }

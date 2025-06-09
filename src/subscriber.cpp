@@ -31,15 +31,15 @@ int main(const int argc, char *const argv[]) {
   auto connConfig = RabbitMQCpp::loadConnectionConfiguration("config/config.json");
 
   RabbitMQCpp::SubscriberConfiguration subscriberConfig{argv[1]};
-  RabbitMQCpp::RabbitMQSubscriber client;
-  client.login(connConfig);
+  RabbitMQCpp::RabbitMQSubscriber subscriber;
+  subscriber.login(connConfig);
 
   CallableCallback ccb;
   RabbitMQCpp::ConsumerCallback cb = message;
-  client.prepare(subscriberConfig, std::ref(cb));
+  subscriber.prepare(subscriberConfig, std::ref(cb));
 
   while (true) {
-    client.consume();
+    subscriber.consume();
   }
   return 0;
 }

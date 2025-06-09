@@ -28,14 +28,14 @@ int main(const int argc, char *const argv[]) {
 
   RabbitMQCpp::TopicConsumerConfiguration consumerConfig{argv[1], std::move(topics)};
 
-  RabbitMQCpp::RabbitMQTopicConsumer client;
-  client.login(connConfig);
+  RabbitMQCpp::RabbitMQTopicConsumer consumer;
+  consumer.login(connConfig);
 
   const RabbitMQCpp::ConsumerCallback cb = message;
-  client.prepare(consumerConfig, std::ref(cb));
+  consumer.prepare(consumerConfig, std::ref(cb));
 
   while (true) {
-    client.consume();
+    consumer.consume();
   }
   return 0;
 }

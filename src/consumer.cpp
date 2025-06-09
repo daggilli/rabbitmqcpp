@@ -18,12 +18,12 @@ int main(int argc, char *argv[]) {
 
   RabbitMQCpp::DirectConsumerConfiguration consumerConfig(argv[1]);
 
-  RabbitMQCpp::RabbitMQDirectConsumer client;
-  client.login(connConfig);
-  client.prepare(consumerConfig, cb);
+  RabbitMQCpp::RabbitMQDirectConsumer consumer;
+  consumer.login(connConfig);
+  consumer.prepare(consumerConfig, cb);
 
   while (true) {
-    client.consume();
+    consumer.consume();
   }
 
   return 0;
