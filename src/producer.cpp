@@ -28,6 +28,5 @@ int main(int argc, char *argv[]) {
 
   producer.send(producerConfig, j.dump());
 
-  sleep(1);
   return 0;
 }
